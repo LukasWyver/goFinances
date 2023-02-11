@@ -10,7 +10,7 @@ export const Container = styled.View<TypeProps>`
     border-radius: 5px;
     width: ${RFValue(300)}px;    
     padding: ${RFValue(19)}px ${RFValue(23)}px ${RFValue(42)}px;
-    ${({ type }) => type != 'total' && css`margin-right: ${RFValue(16)}px;`};
+    ${({ type }) => type != 'total' && css`margin-right: 16px;`};
     background-color: ${({ theme, type }) => type != 'total' ? theme.colors.shape : theme.colors.secondary};
 `;
 
@@ -18,7 +18,6 @@ export const Header = styled.View`
     flex-direction: row;
     justify-content: space-between;
 `;
-
 
 export const Title = styled.Text<TypeProps>`
     font-size: ${RFValue(14)}px;

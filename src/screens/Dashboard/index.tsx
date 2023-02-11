@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import HighlightCard from '../../components/HighlightCard';
+import { TransactionCard } from '../../components/TransactionCard';
 import {
   Container,
   Header,
@@ -12,6 +13,8 @@ import {
   UserName,
   Icon,
   HighlightCards,
+  Transactions,
+  Title,
 } from './styles';
 
 
@@ -58,6 +61,13 @@ export default function Dashboard() {
         <HighlightCard title='saídas' amount="1241.00" lastTransactions="Última saída dia 02 de fevereiro" type="down"/>
         <HighlightCard title='total' amount="16500.00" lastTransactions="01 à 16 de fevereiro" type="total"/>
       </HighlightCards>
+
+      <Transactions>
+        <Title>Listagem</Title>
+
+        <TransactionCard title="Desenvolvimento de Site" amount="1100.000" type="up" category="Vendas" date="13/01/2022"/>
+        <TransactionCard title="Hamburgueria Pizzy" amount="59.90" type="down" category="Alimentação" date="01/02/2022"/>
+      </Transactions>
     </Container>
   );
 }
