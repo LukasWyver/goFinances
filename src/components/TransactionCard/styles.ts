@@ -2,17 +2,15 @@ import styled, { css } from "styled-components/native";
 import { Feather } from '@expo/vector-icons';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 
-
-interface TypeProps {
-    type: 'up' | 'down';
+interface TypeProps { 
+    type: 'positive' | 'negative',
 }
 
 export const Container = styled.View`
     border-radius: 5px;
     padding: ${RFValue(17)}px ${RFValue(24)}px;
-    background-color: ${({theme}) => theme.colors.shape};
-    
-    margin-bottom: 16px; /* retirar depois */
+    background-color: ${({theme}) => theme.colors.shape};    
+    margin-bottom: ${RFValue(16)}px;
 `;
 
 export const Title = styled.Text`
@@ -30,8 +28,7 @@ export const AmountScrollView = styled.ScrollView.attrs({
 export const Amount = styled.Text<TypeProps>`    
     font-size: ${RFValue(20)}px;
     font-family: ${({theme}) => theme.fonts.regular};
-    ${({ type }) => type === 'up' && css` color: ${({ theme }) => theme.colors.success};`};
-    ${({ type }) => type === 'down' && css` color: ${({ theme }) => theme.colors.attention};`};
+    color: ${({ theme, type }) => type != 'negative' ? theme.colors.success : theme.colors.attention};
 `;
 
 export const Footer = styled.View`

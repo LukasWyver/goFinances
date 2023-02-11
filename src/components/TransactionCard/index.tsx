@@ -11,33 +11,42 @@ import {
     Date,
 } from './styles';
 
-interface Props {
+interface Category {
+    name: string;
+    icon: string;
+}
+
+export interface TransactionCardDataProps { 
+    type: 'positive' | 'negative',
     title: string;
     amount: string;
-    type:  'up' | 'down';
-    category: string;
+    category: Category;
     date: string;
-  }
-  
-export function TransactionCard({title, amount, type, category, date}: Props) {
+}
+
+interface TransactionCardProps {
+    data:  TransactionCardDataProps;
+}
+
+export function TransactionCard({ data, }: TransactionCardProps) {
     return (
         <Container>
-            <Title>{title}</Title>
+            <Title>{data.title}</Title>
 
             <AmountScrollView>
-                <Amount type={type}>
-                    R$ {type === 'down' && '-'}
-                    {amount}
+                <Amount type={data.type}>
+                    {data.type != 'positive' ? '- R$': 'R$' }
+                    {data.amount}
                 </Amount>
             </AmountScrollView>
 
             <Footer>
                 <Category>
-                    <CategoryIcon name="dollar-sign" />
-                    <CategoryName>{category}</CategoryName>
+                    <CategoryIcon name={data.category.icon} />
+                    <CategoryName>{data.category.name}</CategoryName>
                 </Category>
 
-                <Date>{date}</Date>
+                <Date>{data.date}</Date>
             </Footer>
         </Container>
     );

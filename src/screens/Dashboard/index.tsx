@@ -1,7 +1,6 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
 import HighlightCard from '../../components/HighlightCard';
-import { TransactionCard } from '../../components/TransactionCard';
+import { TransactionCard, TransactionCardDataProps } from '../../components/TransactionCard';
 import {
   Container,
   Header,
@@ -15,31 +14,49 @@ import {
   HighlightCards,
   Transactions,
   Title,
+  TransactionList,
 } from './styles';
 
-
+export interface DataListProps extends TransactionCardDataProps { 
+  id: number;
+}
 
 export default function Dashboard() {
-  const transactions = [
+  const data: DataListProps[] = [
     {
-      title: 'entradas',
-      icon: 'arrow-up-circle',
-      amount: 17400.00,
-      lastTransactions: "13 de janeiro",
+      id: 1,
+      title: "Desenvolvimento de Site",
+      type: "positive",
+      amount: "1100.000",
+      category: {
+        name: "Vendas",
+        icon: "dollar-sign"
+      },
+      date: "13/01/2023",
     },
     {
-      title: 'saídas',
-      icon: 'arrow-down-circle',
-      amount: 1259.00,
-      lastTransactions: "13 de janeiro",
+      id: 2,
+      title: "Pizzaria e Chopperia",
+      type: "negative",
+      amount: "49.90",
+      category: {
+        name: "Compras",
+        icon: "coffee"
+      },
+      date: "04/02/2023",
     },
     {
-      title: 'total',
-      icon: 'dollar-sign',
-      amount: 16141.00,
-      lastTransactions: "13 de janeiro",
+      id: 3,
+      title: "Ingresso de Cinema",
+      type: "negative",
+      amount: "60.00",
+      category: {
+        name: "Compras",
+        icon: "shopping-bag"
+      },
+      date: "11/02/2023",
     }
-  ]
+];
 
   return (
     <Container>
@@ -57,16 +74,19 @@ export default function Dashboard() {
       </Header>
 
       <HighlightCards>
-        <HighlightCard title='entradas' amount="17400.00" lastTransactions="Última entrada dia 13 de janeiro" type="up"/>
-        <HighlightCard title='saídas' amount="1241.00" lastTransactions="Última saída dia 02 de fevereiro" type="down"/>
-        <HighlightCard title='total' amount="16500.00" lastTransactions="01 à 16 de fevereiro" type="total"/>
+        <HighlightCard title='entradas' amount="17400.00" lastTransactions="Última entrada dia 13 de janeiro" type="up" />
+        <HighlightCard title='saídas' amount="1241.00" lastTransactions="Última saída dia 02 de fevereiro" type="down" />
+        <HighlightCard title='total' amount="16500.00" lastTransactions="01 à 16 de fevereiro" type="total" />
       </HighlightCards>
 
       <Transactions>
         <Title>Listagem</Title>
 
-        <TransactionCard title="Desenvolvimento de Site" amount="1100.000" type="up" category="Vendas" date="13/01/2022"/>
-        <TransactionCard title="Hamburgueria Pizzy" amount="59.90" type="down" category="Alimentação" date="01/02/2022"/>
+        <TransactionList 
+          data={data}
+          keyExtractor={item => item.id.toString()}
+          renderItem={({ item })=> <TransactionCard data={item}/>}        
+        />
       </Transactions>
     </Container>
   );
