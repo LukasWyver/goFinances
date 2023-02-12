@@ -8,16 +8,17 @@ export const Container = styled.View`
 
 export const Header = styled.View`
     width: 100%;
+    height: ${RFValue(113)}px;
+    background-color: ${({theme}) => theme.colors.primary};
+    
     align-items: center;
     justify-content: flex-end;
-    height: ${RFValue(113)}px;
     padding-bottom: ${RFValue(19)}px;
-    background-color: ${({theme}) => theme.colors.primary};
 `;
 export const Title = styled.Text`
     font-size: ${RFValue(18)}px;    
-    font-family: ${({theme}) => theme.fonts.regular};
     color: ${({theme}) => theme.colors.shape};
+    font-family: ${({theme}) => theme.fonts.regular};
 `;
 
 export const Form = styled.View`
