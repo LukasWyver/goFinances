@@ -8,8 +8,9 @@ import {
   TransactionTypes,
 } from './styles';
 import Button from '../../components/Form/Button';
-import TransactionTypeButton from '../../components/Form/TransactionTypeButton';
 import Input from '../../components/Form/Input';
+import TransactionTypeButton from '../../components/Form/TransactionTypeButton';
+import CategorySelect from '../../components/Form/CategorySelect';
 
 export default function Register() {
   const [ transactionType, setTransactionType] = useState('');
@@ -43,6 +44,8 @@ export default function Register() {
             type='down' 
             />
           </TransactionTypes>
+
+          <CategorySelect title="Categoria"/>
         </Fields>
 
         <Button title='Enviar' />

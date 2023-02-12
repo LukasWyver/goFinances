@@ -11,7 +11,7 @@ export const Container = styled.View<TypeProps>`
     width: ${RFValue(300)}px;    
     padding: ${RFValue(19)}px ${RFValue(23)}px ${RFValue(42)}px;
     ${({ type }) => type != 'total' && css`margin-right: 16px;`};
-    background-color: ${({ theme, type }) => type != 'total' ? theme.colors.shape : theme.colors.tertiary};
+    background-color: ${({ theme, type }) => type != 'total' ? theme.colors.shape : theme.colors.secondary};
 `;
 
 export const Header = styled.View`
