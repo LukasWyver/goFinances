@@ -25,7 +25,7 @@ interface Props {
   closeSelectCategory: () => void;
 }
 
-export function CategorySelect({ category, closeSelectCategory, setCategory }: Props) {
+export default function CategorySelect({ category, closeSelectCategory, setCategory }: Props) {
   function handleCategorySelect(category: Category){
     setCategory(category)
   }

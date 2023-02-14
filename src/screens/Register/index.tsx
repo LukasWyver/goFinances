@@ -21,7 +21,7 @@ import InputForm from '../../components/Form/InputForm';
 import TransactionTypeButton from '../../components/Form/TransactionTypeButton';
 import CategorySelectButton from '../../components/Form/CategorySelectButton';
 
-import { CategorySelect } from '../CategorySelect';
+import CategorySelect from '../CategorySelect';
 
 interface FormData { 
   [name: string]: string;
