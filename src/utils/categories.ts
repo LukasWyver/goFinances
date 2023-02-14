@@ -14,7 +14,9 @@ export const categories = [
     { key: 'tracker', name: 'Seguros', icon: 'shield', color: '#2CA3FF' },
 
 
-    { key: 'leisure', name: 'Lazer', icon: 'headphones', color: '#26195C' },    
+    { key: 'leisure', name: 'Lazer', icon: 'headphones', color: '#7A4419' },    
+    { key: 'barber', name: 'Barbearia', icon: 'scissors', color: '#7A4419' },
+
     { key: 'streaming', name: 'Streaming', icon: 'tv', color: '#26195C' },
     { key: 'movie-theater', name: 'Cinema', icon: 'film', color: '#26195C' },
 
