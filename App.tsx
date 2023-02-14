@@ -1,3 +1,4 @@
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider } from 'styled-components';
@@ -31,11 +32,13 @@ export default function App() {
   SplashScreen.hideAsync();
 
   return (
-    <ThemeProvider theme={theme}>
-      <NavigationContainer>
-        <StatusBar style="light" backgroundColor={theme.colors.primary} />          
-        <AppRoutes />
-      </NavigationContainer>      
-    </ThemeProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider theme={theme}>
+        <NavigationContainer>
+          <StatusBar style="light" backgroundColor={theme.colors.primary} />          
+          <AppRoutes />
+        </NavigationContainer>      
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }

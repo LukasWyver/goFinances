@@ -5,8 +5,8 @@ import {
   Modal,
   TouchableWithoutFeedback,
  } from 'react-native';
+ import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
-import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Container,
@@ -84,7 +84,9 @@ export default function Register() {
   }
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <TouchableWithoutFeedback
+      onPress={Keyboard.dismiss}
+    >
       <Container>
         <Header>
           <Title>Cadastro</Title>
